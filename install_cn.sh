@@ -169,6 +169,7 @@ mkdir_tools() {
 
   # Trojan Panel 前端
   mkdir -p ${TROJAN_PANEL_UI_DATA}
+  
   # Nginx
   mkdir -p ${UI_NGINX_DATA}
   touch ${UI_NGINX_CONFIG}
@@ -1185,7 +1186,6 @@ install_trojan_panel() {
 
     if [[ -n $(docker ps -q -f "name=^trojan-panel$" -f "status=running") ]]; then
       echo_content skyBlue "---> Trojan Panel 后端安装完成"
-
       echo_content red "\n=============================================================="
       echo_content skyBlue "Trojan Panel 后端安装成功"
       echo_content yellow "MariaDB ${mariadb_user} 密码（请妥善保管）：${mariadb_pas}"
@@ -1286,7 +1286,6 @@ install_trojan_panel_core() {
 # 更新 Trojan Panel 数据库结构
 update_trojan_panel_database() {
   echo_content skyBlue "---> 更新 Trojan Panel 数据库结构"
-
   version_214_215=("v2.1.4")
   if [[ "${version_214_215[*]}" =~ "${trojan_panel_current_version}" ]]; then
     docker exec trojan-panel-mariadb mysql --default-character-set=utf8 -h"${mariadb_ip}" -P"${mariadb_port}" -u"${mariadb_user}" -p"${mariadb_pas}" -Dtrojan_panel_db -e "${sql_215}" &>/dev/null &&
@@ -1297,7 +1296,6 @@ update_trojan_panel_database() {
     docker exec trojan-panel-mariadb mysql --default-character-set=utf8 -h"${mariadb_ip}" -P"${mariadb_port}" -u"${mariadb_user}" -p"${mariadb_pas}" -Dtrojan_panel_db -e "${sql_230}" &>/dev/null &&
       trojan_panel_current_version="v2.3.0"
   fi
-
   echo_content skyBlue "---> Trojan Panel 数据库结构更新完成"
 }
 
