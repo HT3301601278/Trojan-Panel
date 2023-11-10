@@ -2,6 +2,10 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
+# 使用方法
+# 方法一: curl -O https://raw.githubusercontent.com/HT3301601278/TrojanPanel/main/install_cn.sh
+# 方法二: wget https://raw.githubusercontent.com/HT3301601278/TrojanPanel/main/install_cn.sh
+# 然后再运行: bash install_cn.sh
 # 系统要求: CentOS 7+/Ubuntu 18+/Debian 10+
 # 版本: v2.3.0
 # 描述: 一键安装Trojan Panel服务器
